@@ -11,7 +11,7 @@ def forward(time: int, distance: int, light: Light, pedestrian: Pedestrian) -> N
         pedestrian.step_time(distance, 1)
 
 
-def cross_first_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, min_go_time, ns_block_time) -> float:
+def cross_first_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, min_go_time, ns_block_time) -> tuple[float, float]:
     # Cross First
     cross_first_results = []
     for i in range(500):
@@ -34,10 +34,10 @@ def cross_first_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, 
         cross_first_results.append(pedestrian.elapsed_time)
 
         # plt.plot(pedestrian.time_list, pedestrian.distance_list, 'r-', alpha=0.1)
-    return float(np.median(cross_first_results))
+    return float(np.median(cross_first_results)), float(np.average(cross_first_results))
 
 
-def cross_second_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, min_go_time, ns_block_time):
+def cross_second_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, min_go_time, ns_block_time) -> tuple[float, float]:
     # Cross Second
     cross_second_results = []
     for i in range(500):
@@ -78,5 +78,5 @@ def cross_second_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time,
         cross_second_results.append(pedestrian.elapsed_time)
 
         # plt.plot(pedestrian.time_list, pedestrian.distance_list, 'b-', alpha=0.1)
-    return float(np.median(cross_second_results))
+    return float(np.median(cross_second_results)), float(np.average(cross_second_results))
 
