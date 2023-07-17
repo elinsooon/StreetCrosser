@@ -1,6 +1,5 @@
 import random
-from utility import forward, cross_first_sim, cross_second_sim
-from collections import Counter
+from utility import cross_first_sim, cross_second_sim
 import matplotlib.pyplot as plt
 
 NS_CROSS_TIME = 10

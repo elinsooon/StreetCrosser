@@ -59,8 +59,6 @@ class Light:
             if self.ns_time_left == 0 and self.green_gap != 0:
                 self.green_gap -= 1
             elif self.ns_time_left == 0:
-                # for i in range(INTER_LIGHT_TIME):
-                #     pedestrian.step_time(0, 1)
                 self.ns_on = False
                 self.ew_time_left = self.ew_time
                 self.ew_on = True
@@ -72,8 +70,6 @@ class Light:
             if self.ew_time_left == 0 and self.green_gap != 0:
                 self.green_gap -= 1
             elif self.ew_time_left == 0:
-                # for i in range(INTER_LIGHT_TIME):
-                #     pedestrian.step_time(0, 1)
                 self.ew_on = False
                 self.ns_time_left = self.ns_time
                 self.ns_on = True
@@ -81,19 +77,3 @@ class Light:
 
             else:
                 self.ew_time_left -= 1
-
-
-class Environment:
-    elapsed_time: int
-    light: Light
-    pedestrian: Pedestrian
-
-    def __init__(self, light: Light, pedestrian: Pedestrian):
-        self.elapsed_time = 0
-        self.light = light
-        self.pedestrian = pedestrian
-
-    def step_time(self, distance_step: int):
-        self.elapsed_time += 1
-        self.light.step_time()
-        self.pedestrian.step_time(distance_step, 1)

@@ -1,12 +1,10 @@
-from classes import Light, Pedestrian, Environment
+from classes import Light, Pedestrian
 import random
-import matplotlib.pyplot as plt
 import numpy as np
 
 
 def forward(time: int, distance: int, light: Light, pedestrian: Pedestrian) -> None:
     for i in range(time):
-        #env.step_time(distance)
         light.step_time()
         pedestrian.step_time(distance, 1)
 
@@ -17,7 +15,6 @@ def cross_first_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time, 
     for i in range(500):
         light = Light(ns_light_time, ew_light_time, random.randint(0, ns_light_time + ew_light_time))
         pedestrian = Pedestrian()
-        env = Environment(light, pedestrian)
 
         # Cross EW
         forward(ew_cross_time, 1, light, pedestrian)
@@ -77,6 +74,5 @@ def cross_second_sim(ns_light_time, ew_light_time, ns_cross_time, ew_cross_time,
 
         cross_second_results.append(pedestrian.elapsed_time)
 
-        # plt.plot(pedestrian.time_list, pedestrian.distance_list, 'b-', alpha=0.1)
     return float(np.median(cross_second_results)), float(np.average(cross_second_results))
 
