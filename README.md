@@ -5,4 +5,5 @@ Do you first cross the street at the stop sign to avoid having to cross in both 
 This simulates that problem with a variety of variables such as the light cycle timing and how long it takes to cross each crosswalk. It then plots these values on a graph depicting a pedestrian's time vs. distance covered on a graph for many iterations.
 
 See this link for a sketch of the situation:
-(https://github.com/elinsooon/StreetCrosser/files/12072242/New.Note.pdf)
+
+(https://github.com/elinsooon/StreetCrosser/files/12072441/scs.pdf)
